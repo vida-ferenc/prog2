@@ -1,33 +1,24 @@
-public class Hamming {
+public class CleanString {
 
-    public static int distance(String s1, String s2) {
-        if (s1 == null || s2 == null) {
-            throw new IllegalArgumentException("A sztringek nem lehetnek null értékűek!");
+    /**
+     * Eltávolítja az összes whitespace karaktert (szóköz, újsor, tabulátor stb.) a kapott sztringből.
+     *
+     * @param input A bemeneti sztring
+     * @return A tisztított sztring
+     */
+    public static String clean(String input) {
+        if (input == null) {
+            return null;
         }
-
-        if (s1.length() != s2.length()) {
-            throw new IllegalArgumentException("A két sztring hossza nem egyezik meg!");
-        }
-
-        int diffCount = 0;
-        for (int i = 0; i < s1.length(); i++) {
-            if (s1.charAt(i) != s2.charAt(i)) {
-                diffCount++;
-            }
-        }
-
-        return diffCount;
+        // A \\s reguláris kifejezés az összes whitespace karakterre illeszkedik
+        return input.replaceAll("\\s+", "");
     }
 
     public static void main(String[] args) {
-        String s1 = "toned";
-        String s2 = "roses";
+        String test1 = "192.20.246.138:\n 6666";
+        String test2 = "206.130.99.82:\n8080";
 
-        try {
-            int d = Hamming.distance(s1, s2);
-            System.out.println("Hamming-távolság: " + d);
-        } catch (IllegalArgumentException e) {
-            System.err.println("Hiba: " + e.getMessage());
-        }
+        System.out.println(clean(test1)); // Kimenet: 192.20.246.138:6666
+        System.out.println(clean(test2)); // Kimenet: 206.130.99.82:8080
     }
 }
