@@ -2,43 +2,45 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class PyUtils {
+public class AdatVisszaado {
 
-    // 1 paraméteres változat: range(end) -> range(0, end, 1)
-    public static List<Integer> range(int end) {
-        return range(0, end, 1);
+    // =======================================================
+    // A) Több AZONOS típusú elem visszaadása:
+    //    Tömböt (int[]) vagy Listát (List<T>) használunk.
+    // =======================================================
+    
+    // Példa 1: Tömbbel (fix méret esetén)
+    public static int[] getAzonosTomb(int a, int b) {
+        return new int[]{a, b};
     }
 
-    // 2 paraméteres változat: range(start, end) -> range(start, end, 1)
-    public static List<Integer> range(int start, int end) {
-        return range(start, end, 1);
+    // Példa 2: Listával (dinamikus elemszám esetén)
+    public static List<String> getAzonosLista() {
+        List<String> nevek = new ArrayList<>();
+        nevek.add("Anna");
+        nevek.add("Béla");
+        return nevek;
     }
 
-    // 3 paraméteres változat: range(start, end, step)
-    // Ez végzi a tényleges generálást
-    public static List<Integer> range(int start, int end, int step) {
-        List<Integer> result = new ArrayList<>();
-        
-        // Feltételezve, hogy a lépésköz (step) pozitív egész szám
-        for (int i = start; i < end; i += step) {
-            result.add(i);
+    // =======================================================
+    // B) Több KÜLÖNBÖZŐ típusú elem visszaadása:
+    //    Egy saját osztályt hozunk létre a típusok összefogására.
+    // =======================================================
+    
+    public static class FelhasznaloAdatok {
+        public String nev;
+        public int eletkor;
+        public double atlag;
+
+        public FelhasznaloAdatok(String nev, int eletkor, double atlag) {
+            this.nev = nev;
+            this.eletkor = eletkor;
+            this.atlag = atlag;
         }
-        
-        return result;
     }
 
-    // Rövid teszt a működés ellenőrzésére:
-    public static void main(String[] args) {
-        System.out.println(PyUtils.range(0, 5));      // [0, 1, 2, 3, 4]
-        System.out.println(PyUtils.range(3, 7));      // [3, 4, 5, 6]
-        System.out.println(PyUtils.range(3, 4));      // [3]
-        System.out.println(PyUtils.range(3, 3));      // []
-        System.out.println(PyUtils.range(10));        // [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-        System.out.println(PyUtils.range(1));         // [0]
-        System.out.println(PyUtils.range(0));         // []
-        System.out.println(PyUtils.range(-4));        // []
-        System.out.println(PyUtils.range(4, 20, 2));  // [4, 6, 8, 10, 12, 14, 16, 18]
-        System.out.println(PyUtils.range(4, 10, 1));  // [4, 5, 6, 7, 8, 9]
-        System.out.println(PyUtils.range(10, 4, 1));  // []
+    // Metódus, ami a fenti összetett típust adja vissza
+    public static FelhasznaloAdatok getKulonbozoAdatok() {
+        return new FelhasznaloAdatok("Kovács Péter", 21, 4.75);
     }
 }
