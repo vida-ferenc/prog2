@@ -1,14 +1,5 @@
-
 public class Hamming {
 
-    /**
-     * Kiszámítja két azonos hosszúságú sztring Hamming-távolságát.
-     *
-     * @param s1 Első sztring
-     * @param s2 Második sztring
-     * @return Az eltérő karakterek száma
-     * @throws IllegalArgumentException Ha a sztringek hossza eltér, vagy valamelyik null
-     */
     public static int distance(String s1, String s2) {
         if (s1 == null || s2 == null) {
             throw new IllegalArgumentException("A sztringek nem lehetnek null értékűek!");
@@ -34,9 +25,6 @@ public class Hamming {
 
         try {
             int d = Hamming.distance(s1, s2);
-            System.out.println("Hamming-távolság: " + d); // Kimenet: 3
+            System.out.println("Hamming-távolság: " + d);
         } catch (IllegalArgumentException e) {
-            System.err.println("Hiba: " + e.getMessage());
-        }
-    }
-}
+            System.err.println("Hiba: " + e.
