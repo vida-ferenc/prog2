@@ -27,4 +27,7 @@ public class Hamming {
             int d = Hamming.distance(s1, s2);
             System.out.println("Hamming-távolság: " + d);
         } catch (IllegalArgumentException e) {
-            System.err.println("Hiba: " + e.
+            System.err.println("Hiba: " + e.getMessage());
+        }
+    }
+}
