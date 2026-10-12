@@ -1,0 +1,12 @@
+Kovacs Peter:HUN:74.5
+Nagy Anna:GER:71.2
+Szabo Laszlo:AUT:78.0
+Toth Krisztina:HUN:69.8
+Varga Gabor:USA:73.1
+Kiss Eszter:HUN:67.4
+Molnar Balazs:HUN:82.0
+Horvath Zoltan:GER:70.5
+Fekete Judit:CAN:68.3
+Vass Tamas:AUT:76.4
+Lukacs Kinga:HUN:66.9
+Balogh Robert:GBR:75.2
