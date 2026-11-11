@@ -31,4 +31,12 @@ public class Diamond {
         // Try-catch helyett reguláris kifejezéssel (regex) vizsgáljuk meg a formátumot.
         // A "-?\\d+" jelentése: opcionális mínusz jel, amit egy vagy több számjegy követ.
         if (!args[0].matches("-?\\d+")) {
-            System.out.println("Hiba
+            System.out.println("Hiba: A megadott argumentum nem egy ervenyes egesz szam!");
+            return;
+        }
+
+        // Mivel már biztosan számformátumú a string, biztonságosan konvertálhatjuk
+        int height = Integer.parseInt(args[0]);
+        drawDiamond(height);
+    }
+}
