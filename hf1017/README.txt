@@ -1,46 +1,34 @@
+public class Diamond {
 
-import java.util.ArrayList;
-import java.util.List;
+    public static void drawDiamond(int height) {
+        // Páros érték esetén informatív hibaüzenet
+        if (height % 2 == 0) {
+            System.out.println("Hiba: A magassagnak paratlan szamnak kell lennie! (Kaptuk: " + height + ")");
+            return;
+        }
 
-public class AdatVisszaado {
+        int n = height / 2;
 
-    // =======================================================
-    // A) Több AZONOS típusú elem visszaadása:
-    //    Tömböt (int[]) vagy Listát (List<T>) használunk.
-    // =======================================================
-    
-    // Példa 1: Tömbbel (fix méret esetén)
-    public static int[] getAzonosTomb(int a, int b) {
-        return new int[]{a, b};
-    }
+        // Felső rész és középső sor
+        for (int i = 0; i <= n; i++) {
+            System.out.println(" ".repeat(n - i) + "*".repeat(2 * i + 1));
+        }
 
-    // Példa 2: Listával (dinamikus elemszám esetén)
-    public static List<String> getAzonosLista() {
-        List<String> nevek = new ArrayList<>();
-        nevek.add("Anna");
-        nevek.add("Béla");
-        return nevek;
-    }
-
-    // =======================================================
-    // B) Több KÜLÖNBÖZŐ típusú elem visszaadása:
-    //    Egy saját osztályt hozunk létre a típusok összefogására.
-    // =======================================================
-    
-    public static class FelhasznaloAdatok {
-        public String nev;
-        public int eletkor;
-        public double atlag;
-
-        public FelhasznaloAdatok(String nev, int eletkor, double atlag) {
-            this.nev = nev;
-            this.eletkor = eletkor;
-            this.atlag = atlag;
+        // Alsó rész
+        for (int i = n - 1; i >= 0; i--) {
+            System.out.println(" ".repeat(n - i) + "*".repeat(2 * i + 1));
         }
     }
 
-    // Metódus, ami a fenti összetett típust adja vissza
-    public static FelhasznaloAdatok getKulonbozoAdatok() {
-        return new FelhasznaloAdatok("Kovács Péter", 21, 4.75);
-    }
-}
+    public static void main(String[] args) {
+        // Ellenőrizzük, hogy adtak-e meg parancssori argumentumot
+        if (args.length == 0) {
+            System.out.println("Hiba: Kerlek add meg a gyemant magassagat argumentumkant!");
+            System.out.println("Hasznalat: java Diamond <magassag>");
+            return;
+        }
+
+        // Try-catch helyett reguláris kifejezéssel (regex) vizsgáljuk meg a formátumot.
+        // A "-?\\d+" jelentése: opcionális mínusz jel, amit egy vagy több számjegy követ.
+        if (!args[0].matches("-?\\d+")) {
+            System.out.println("Hiba
